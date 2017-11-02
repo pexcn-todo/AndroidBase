@@ -10,10 +10,15 @@ import android.view.View;
  */
 @SuppressWarnings("unused")
 public abstract class BaseLazyFragment extends BaseFragment {
-    // 是否可见
     protected boolean mVisible;
-    // 是否第一次加载
     protected boolean mFirstLoad;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mFirstLoad = true;
+        lazyLoad();
+    }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
@@ -24,13 +29,6 @@ public abstract class BaseLazyFragment extends BaseFragment {
         } else {
             mVisible = false;
         }
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mFirstLoad = true;
-        lazyLoad();
     }
 
     /**
