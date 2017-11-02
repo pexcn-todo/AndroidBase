@@ -24,8 +24,8 @@ task clean(type: Delete) {
 ext {
     libraryName = 'AndroidBase'
     libraryDescription = 'Android reusable base extract.'
-    libraryVersionName = '0.1.0'
-    libraryVersionCode = 17
+    libraryVersionName = '0.1.1'
+    libraryVersionCode = 18
 
     groupId = 'me.pexcn'
     artifactId = 'android-base'
