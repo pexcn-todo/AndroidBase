@@ -5,7 +5,6 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import me.pexcn.android.base.R;
@@ -21,7 +20,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
 
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        setSupportActionBar(findViewById(R.id.toolbar));
 
         if (isSubActivity()) {
             final ActionBar actionBar = getSupportActionBar();
@@ -30,7 +29,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         }
 
-        init();
+        init(savedInstanceState);
     }
 
     /**
@@ -41,7 +40,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 初始化数据
      */
-    protected abstract void init();
+    protected abstract void init(@Nullable Bundle savedInstanceState);
 
     /**
      * 是否为某个 Activity 的子 Activity

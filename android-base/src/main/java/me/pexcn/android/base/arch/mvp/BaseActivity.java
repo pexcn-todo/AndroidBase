@@ -1,6 +1,8 @@
 package me.pexcn.android.base.arch.mvp;
 
+import android.os.Bundle;
 import android.support.annotation.CallSuper;
+import android.support.annotation.Nullable;
 
 /**
  * Created by pexcn on 2016-09-24.
@@ -12,7 +14,7 @@ public abstract class BaseActivity<P extends BaseContract.Presenter>
 
     @CallSuper
     @Override
-    protected void init() {
+    protected void init(@Nullable Bundle savedInstanceState) {
         mPresenter = createPresenter();
     }
 
